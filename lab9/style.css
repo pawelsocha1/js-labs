@@ -1,0 +1,51 @@
+body {
+  font-family: sans-serif;
+}
+
+#weather {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#weather > div {
+  width: 200px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+label {
+  margin-right: 10px;
+}
+
+input[type="text"],
+select {
+  width: 150px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0084ff;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0073e6;
+}
