@@ -1,0 +1,44 @@
+.drum-pad {
+    display: inline-block;
+    margin: 10px;
+    padding: 50px;
+    background-color: #eee;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 24px;
+    box-shadow: 0 0 15px #999;
+    cursor: pointer;
+  }
+  
+  .drum-pad.playing {
+    background-color: #ddd;
+    box-shadow: 0 0 15px #777;
+  }
+  
+  audio {
+    display: none;
+  }
+  
+  .controls {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #eee;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #ddd;
+  }
+  
+  button:active {
+    background-color: #ccc;
+    box-shadow: 0 0 5px #999;
+  }

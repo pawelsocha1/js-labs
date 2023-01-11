@@ -2,22 +2,81 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <div class="container"></div>
-    <audio src="./sounds/clap.wav" controls id="s1"></audio>
-    <audio src="./sounds/hihat.wav" controls id="s2"></audio>
-    <audio src="./sounds/boom.wav" controls id="s3"></audio>
-    <audio src="./sounds/kick.wav" controls id="s4"></audio>
-    <audio src="./sounds/openhat.wav" controls id="s5"></audio>
-    <audio src="./sounds/ride.wav" controls id="s6"></audio>
-    <audio src="./sounds/snare.wav" controls id="s7"></audio>
-    <audio src="./sounds/tink.wav" controls id="s8"></audio>
-    <audio src="./sounds/tom.wav" controls id="s9"></audio>
-</div>
-
+<div class="drum-pad" id="boom">
+    <audio src="sounds/boom.wav" class="clip" id="Q"></audio>
+    Q
+  </div>
+  
+  <div class="drum-pad" id="clap">
+    <audio src="sounds/clap.wav" class="clip" id="W"></audio>
+    W
+  </div>
+  
+  <div class="drum-pad" id="hihat">
+    <audio src="sounds/hihat.wav" class="clip" id="E"></audio>
+    E
+  </div>
+  
+  <div class="drum-pad" id="kick">
+    <audio src="sounds/kick.wav" class="clip" id="R"></audio>
+    R
+  </div>
+  
+  <div class="drum-pad" id="openhat">
+    <audio src="sounds/openhat.wav" class="clip" id="T"></audio>
+    T
+  </div>
+  
+  <div class="drum-pad" id="ride">
+    <audio src="sounds/ride.wav" class="clip" id="Y"></audio>
+    Y
+  </div>
+  
+  <div class="drum-pad" id="snare">
+    <audio src="sounds/snare.wav" class="clip" id="U"></audio>
+    U
+  </div>
+  
+  <div class="drum-pad" id="tink">
+    <audio src="sounds/tink.wav" class="clip" id="I"></audio>
+    I
+  </div>
+  
+  <div class="drum-pad" id="tom">
+    <audio src="sounds/tom.wav" class="clip" id="O"></audio>
+    O
+  </div>
+  <div id="channel-1-container">
+    <button id="record-channel-1">Record</button>
+    <button id="play-channel-1">Play</button>
+    <button id="stop-channel-1">Stop</button>
+  </div>
+  
+  <div id="channel-2-container">
+    <button id="record-channel-2">Record</button>
+    <button id="play-channel-2">Play</button>
+    <button id="stop-channel-2">Stop</button>
+  </div>
+  
+  <div id="channel-3-container">
+    <button id="record-channel-3">Record</button>
+    <button id="play-channel-3">Play</button>
+    <button id="stop-channel-3">Stop</button>
+  </div>
+  
+  <div id="channel-4-container">
+    <button id="record-channel-4">Record</button>
+    <button id="play-channel-4">Play</button>
+    <button id="stop-channel-4">Stop</button>
+  </div>
+  
+  <button id="play-all">Play All</button>
+  
+  
     <script src="main.js"></script>
 </body> 
 </html>
