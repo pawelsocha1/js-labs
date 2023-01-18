@@ -10,14 +10,35 @@
 </head>
 
 <body>
-    <button id="addBtn">
-        <i class="fas fa-plus"></i>
-        Add Note
-    </button>
-    <div id="main">
- 
-        <script src="https://kit.fontawesome.com/bf520e6492.js" crossorigin="anonymous"></script>
-        <script src="index.js"></script>
+
+    <div id="app">
+        <h1>Notatki</h1>
+        <form id="note-form">
+          <input type="text" id="note-title" placeholder="Tytuł notatki" required>
+          <textarea id="note-content" placeholder="Treść notatki" required></textarea>
+          <input type="color" id="note-color">
+          <label for="note-pin">Pin:</label>
+          <input type="checkbox" id="note-pin">
+          <button type="submit">Utwórz notatkę</button>
+        </form>
+        <div id="edit-form">
+          <form>
+              <label>Tytuł:</label>
+              <input type="text" id="edit-title" value="${noteToEdit.title}">
+              <label>Treść:</label>
+              <textarea id="edit-content">${noteToEdit.content}</textarea>
+              <label>Kolor:</label>
+              <input type="color" id="edit-color" value="${noteToEdit.color}">
+              <label>Przypięta:</label>
+              <input type="checkbox" id="edit-pin" ${noteToEdit.pin ? "checked" : "">
+              <button onclick="saveChanges(event)">Zapisz zmiany</button>
+          </form>
+        </div>
+        <ul id="notes">
+          
+        </ul>
+      </div> 
+    <script src="main.js"></script>
 </body>
 
-</html>
+</html>      

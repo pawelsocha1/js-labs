@@ -1,62 +1,39 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-#main {
-    width: 100%;
-    min-height: 100vh;
-    padding-bottom: 50px;
-    background-color: purple;
+#note-form {
     display: flex;
     flex-wrap: wrap;
-}
-
-#addBtn {
-    position: fixed;
-    right: 10px;
-    top: 10px;
-    background-color: #2d3436;
-    color: white;
+    align-items: center;
+  }
+  
+  #note-form input,
+  #note-form textarea,
+  #note-form button {
+    margin: 10px;
     padding: 10px;
-    border: 0;
-    outline: 0;
-    border-radius: 5px;
-}
-
-.note {
-    width: 400px;
-    height: 400px;
-    background-color: white;
-    margin: 15px;
-    margin-top: 55px;
-}
-
-.tool {
-    width: 100%;
-    background-color: #2d3436;
-    color: white;
-    padding: 5px;
+  }
+  
+  #note-form input[type="color"] {
+    width: 50px;
+  }
+  
+  .note {
     display: flex;
-    justify-content: end;
-}
-
-.tool i {
-    padding: 5px;
-    cursor: pointer;
-}
-
-.note textarea {
-    border: none;
-    width: 100%;
-    height: 100%;
-    resize: none;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
     padding: 10px;
-    font-size: 18px;
+  }
+  
+  .pinned {
+    font-weight:bold;
+    text-transform: uppercase;
+    color: yellow;
+  }
+
+  ul {
+    list-style: none;
 }
 
-.note textarea:focus {
-    border: 0;
-    outline: 0;
+#edit-form {
+  display: none;
 }
+  
