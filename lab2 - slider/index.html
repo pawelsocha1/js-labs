@@ -6,47 +6,23 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-
-   
+    <div class="slider-container">
     <div class="slider">
-      <div class="slides">
-        <input type="radio" name="radio-btn" id="radio1">
-        <input type="radio" name="radio-btn" id="radio2">
-        <input type="radio" name="radio-btn" id="radio3">
-        <input type="radio" name="radio-btn" id="radio4">
-        
-        <div class="slide first">
-            <img src="https://cdn.galleries.smcloud.net/t/galleries/gf-CBBg-ndYs-P2pP_mariusz-pudzianowski-1920x1080-nocrop.jpg" alt="">  
-        </div>
-        <div class="slide">
-            <img src="https://s3.viva.pl/newsy/adam-malysz-575962-GALLERY_BIG.jpg" alt="">  
-        </div>
-        <div class="slide">
-            <img src="https://ocdn.eu/images/pulscms/NzQ7MDA_/c7e85be71d20e087115f0d8465fea342.jpg" alt="">  
-        </div>
-        <div class="slide">
-            <img src="https://m.natemat.pl/dec1bbb82814545ad8f59ed626aa09fb,0,0,0,0.jpg" alt="">  
-        </div>
-      
-        <div class="navigation-auto">
-          <div class="auto-btn1"></div>
-          <div class="auto-btn2"></div>
-          <div class="auto-btn3"></div>
-          <div class="auto-btn4"></div>
-        </div>
-   
-      </div>
-     
-      <div class="navigation-manual">
-        <label for="radio1" class="manual-btn"></label>
-        <label for="radio2" class="manual-btn"></label>
-        <label for="radio3" class="manual-btn"></label>
-        <label for="radio4" class="manual-btn"></label>
-      </div>
-    
+      <img src="https://cdn.galleries.smcloud.net/t/galleries/gf-CBBg-ndYs-P2pP_mariusz-pudzianowski-1920x1080-nocrop.jpg" class="slide">
+      <img src="https://s3.viva.pl/newsy/adam-malysz-575962-GALLERY_BIG.jpg" class="slide">
+      <img src="https://ocdn.eu/images/pulscms/NzQ7MDA_/c7e85be71d20e087115f0d8465fea342.jpg" class="slide">
+      <img src="https://m.natemat.pl/dec1bbb82814545ad8f59ed626aa09fb,0,0,0,0.jpg" class="slide">
     </div>
-   
-
+    <div class="slider-nav">
+      <div class="slider-nav-btn" data-slide="1"></div>
+      <div class="slider-nav-btn" data-slide="2"></div>
+      <div class="slider-nav-btn" data-slide="3"></div>
+      <div class="slider-nav-btn" data-slide="4"></div>
+  </div>
+  <div class="slider-prev">&lt;</div>
+  <div class="slider-next">&gt;</div>
+</div>
+    
     <script src="main.js"></script>
 
   </body>
