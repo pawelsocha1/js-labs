@@ -1,123 +1,88 @@
-var holes = [];
-var posX;
-var posY;
-var holeX;
-var holeY;
-var startGame = false;
-var startDate;
-var czasGry;
-var lastEventTimestamp;
-let container = document.querySelector('.container');
-var ball = document.querySelector(".ball");
+var canvas;
+var ctx;
+var x = 75;
+var y = 75;
+var maxX = 300;
+var maxY = 150;
+var dx = 0;
+var dy = 0;
+var holeX = 200;
+var holeY = 75;
+var holeWidth = 20;
+var holeHeight = 20;
+var score = 0;
+var speed = 5;
 
-var maxX = container.clientWidth  - ball.clientWidth;
-var maxY = container.clientHeight - ball.clientHeight;
+function startGame() {
+    canvas = document.getElementById("myCanvas");
+    ctx = canvas.getContext("2d");
+    window.addEventListener('deviceorientation', handleOrientation);
+    animate();
+}
+
 
 function handleOrientation(event) {
-    var y = event.beta;
-    var x = event.gamma; 
+    var beta = event.beta;
+    var gamma = event.gamma;
 
-    if (x >  90) { x =  90};
-    if (x < -90) { x = -90};
-
-    x += 90;
-    y += 90;
-    
-    var currentEventTimestamp = new Date().getTime();
-    if (!lastEventTimestamp || currentEventTimestamp - lastEventTimestamp > 50) {
-        lastEventTimestamp = currentEventTimestamp;
-        if ((maxX*x/180 - 22) < maxX && (maxY*y/180 - 22) < maxY)
-        {
-            ball.style.top  = (maxY*y/180 - 22) + "px";
-            ball.style.left = (maxX*x/180 - 22) + "px";
-            posX = maxX*x/180 - 22;
-            posY = maxY*y/180 - 22;
-            checkCollision();
-        }
-    }
+    dx = (gamma / 90) * speed;
+    dy = (beta / 180) * speed;
 }
-
-function start() {
-    if (startGame = true){
-        startDate = new Date();
-        countTime;
-        createHoles();
-    }
-}
-
-function createHoles() {
-    for (i = 0; i < (container.clientWidth/100); i++ ) {
-        let hole = document.createElement('div');
-        hole.classList.add("hole");
-        holeX = Math.random() * (container.clientWidth - 77);
-        holeY = Math.random() * (container.clientHeight - 77);
-        hole.style.left = holeX + 'px';
-        hole.style.top = holeY + 'px';
-        holes.push(hole);
-        container.appendChild(hole);
-    }
-    getGoodHole();
-}
-
 function checkCollision() {
-    for (let i = 0; i < holes.length; i++) {
-        if(posY < Math.floor(holes[i].style.top.slice(0,-2)) + 30 && posY > holes[i].style.top.slice(0,-2)){
-            if(posX > holes[i].style.left.slice(0,-2) && posX < Math.floor(holes[i].style.left.slice(0,-2)) + 30){
-                if(holes[i].classList.contains("goodHole")){
-                    startGame = false;
-                    stopTimer();
-                    var isWinner = window.confirm('Gratulacje! Wygrales rozgrywkę. Czas trwania gry: '+ czasGry + '. Czy chcesz zagrać ponownie?');
-                    if (isWinner) {
-                        holes.length = 0;
-                        container.innerHTML = '';
-                        startGame = true;
-                        start();
-                    }
-                }
-                else if(holes[i].classList.contains("hole")) {
-                    startGame = false;
-                    stopTimer();
-                    var isLoser = window.confirm('Nie udalo Ci sie:( Czas trwania gry: ' + czasGry + '. Czy chcesz zagrać ponownie?');
-                    if (isLoser) {
-                        holes.length = 0;
-                        container.innerHTML = '';
-                        startGame = true;
-                        start();
-                    }
-                }
-            }
-        }
+    if (x > holeX && x < holeX + holeWidth && y > holeY && y < holeY + holeHeight) {
+        alert("You scored a point!");
+        score++;
+        document.getElementById("score").innerHTML = score;
+        x = 75;
+        y = 75;
     }
 }
 
-var countTime = setInterval(startTimer, 1000);
-function startTimer() {
-    if (startGame == true) {
-        var date = new Date();
-        czasGry = (Math.abs(date - startDate))/1000;
-        document.getElementById("czas").innerHTML = czasGry;
+
+function draw() {
+    ctx.clearRect(0, 0, maxX, maxY);
+    ctx.beginPath();
+    ctx.arc(x, y, 10, 0, Math.PI * 2);
+    ctx.fillStyle = "#0095DD";
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "#000000";
+    ctx.fillRect(holeX, holeY, holeWidth, holeHeight);
+
+    // Move the ball based on the accelerometer data
+    x += dx;
+    y += dy;
+
+    // Check if the ball hits the edge of the canvas
+    if (x > maxX - 10) {
+        x = maxX - 10;
+        dx = -dx;
     }
+    if (x < 10) {
+        x = 10;
+        dx = -dx;
+    }
+    if (y > maxY - 10) {
+        y = maxY - 10;
+        dy = -dy;
+    }
+    if (y < 10) {
+        y = 10;
+        dy = -dy;
+    }
+    checkCollision();
 }
 
-function stopTimer() {
-    if (startGame == false) {
-        var date = new Date();
-        czasGry = (Math.abs(date - startDate))/1000;
-        document.getElementById("czas").innerHTML = czasGry;
-    }
+var startTime = performance.now();
+
+function updateTime() {
+    var currentTime = performance.now();
+    var elapsedTime = (currentTime - startTime) / 1000;
+    document.getElementById("time").innerHTML = "Czas: " + elapsedTime;
 }
-
-function getGoodHole() {
-    let goodHole = Math.floor(Math.random()* holes.length);
-    if (goodHole > holes.length - 1) {
-        goodHole--;
-    }
-    else if (goodHole < 0) {
-        goodHole++;
-    }
-    console.log(goodHole)
-    holes[goodHole].classList.remove('hole');
-    holes[goodHole].classList.add('goodHole');
-
-window.addEventListener('deviceorientation', handleOrientation, true)
-};
+function animate() {
+  draw();
+  updateTime();
+  requestAnimationFrame(animate);
+}

@@ -1,22 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ball in a hole</title>
-    <link rel="stylesheet" href="style.css">
+  <title>Guide the ball into a hole</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
-    <div class="timeContainer">
-        <button id="startButton" onclick="start()">START</button>
-        <i id="timer"></i>
-        <p id="czas"></p>
-    </div>
-    <div class="container">
-        <div class="ball"></div>      
-    </div>
-    
-    <script type="text/javascript" src="main.js"></script>
+<body onload="startGame()">
+  <div class="game-container">
+    <canvas id="myCanvas" width="300" height="150"></canvas>
+    <div class="score">Score: <span id="score">0</span></div>
+    <div id="time">Czas:</div>
+  </div>
+  <script src="main.js"></script>
 </body>
 </html>
