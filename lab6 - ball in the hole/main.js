@@ -50,11 +50,9 @@ function draw() {
     ctx.fillStyle = "#000000";
     ctx.fillRect(holeX, holeY, holeWidth, holeHeight);
 
-    // Move the ball based on the accelerometer data
     x += dx;
     y += dy;
 
-    // Check if the ball hits the edge of the canvas
     if (x > maxX - 10) {
         x = maxX - 10;
         dx = -dx;
