@@ -106,24 +106,6 @@ function saveChanges(e) {
     displayNotes();
 }
 
-function saveChanges(e) {
-    e.preventDefault();
 
-    const newTitle = document.querySelector("#edit-title").value;
-    const newContent = document.querySelector("#edit-content").value;
-    const newColor = document.querySelector("#edit-color").value;
-    const newPin = document.querySelector("#edit-pin").checked;
-
-    noteToEdit.title = newTitle;
-    noteToEdit.content = newContent;
-    noteToEdit.color = newColor;
-    noteToEdit.pin = newPin;
-
-    document.querySelector("#edit-form").style.display = "none";
-
-    localStorage.setItem('notes', JSON.stringify(notes));
-
-    displayNotes();
-}
 
 
