@@ -80,6 +80,9 @@ playChannel1Btn.addEventListener("click", () => {
 const recordChannel2Btn = document.getElementById("record-channel-2");
 const playChannel2Btn = document.getElementById("play-channel-2");
 const stopChannel2Btn = document.getElementById("stop-channel-2");
+recordChannel2Btn.addEventListener("click", () => {
+  channel2.startRecording();
+});
 stopChannel2Btn.addEventListener("click", () => {
   channel2.stopRecording();
 });
